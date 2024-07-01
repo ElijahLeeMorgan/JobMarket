@@ -7,10 +7,12 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 ### Overview Raw Datasets
 | Name | Quelle | Storage location |
 |----------------|-----------------------------------------|--------------------------------------------------------------------------|
-| Dataset 1      | Name/short description of the data source | Link and/or short description of the location where the data is stored, e.g. accessible to the team |
-| Dataset 2      | …                                       | …                                                                        |
+| Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | TBD |
 
 ### Details Dataset 1
+- Dataset Contents: Job Title, Salary, Job Requirements, Language, Workload, Location,
+- 
+{::comment}
 - Description of what information the dataset contains
 - Details of the data source/provider
 - Information on data procurement: description and possibly references to resources (download scripts, tools, online services, ...). Any new team member should be able to acquire the data indepentendently following these instructions.
@@ -18,6 +20,7 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 - Data governance aspects: Categorisation of the data based on internal business requirements, e.g. public, business-relevant, personal
 - If applicable: categorisation into dependent (target variable, regressor) and independent (regressor) variables
 - ...
+{:/comment}
 
 #### Data Catalogue
 The data catalogue basically represents an extended schema of a relational database.
