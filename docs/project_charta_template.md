@@ -106,33 +106,40 @@ Such a requirement should be aligned with the overall project goals and/or liter
 -->
 
 ## Project Plan
+
 <!---
 Divide the project into individual phases, describe them briefly and draw up a preliminary timetable, e.g. as a Gantt chart:
 Ranking Matching: Type of Job? -> Skills -> Prefrences -> Salary -->
 
-```
+```mermaid
 gantt
-    title A Gantt Diagram
+    title Project Timeline
     dateFormat YYYY-MM-DD
     tickInterval 5day
-    section Project Understanding
-        Define problem,     :a1, 2024-07-01, 1d
-        Determine project goals     :a2, 2024-07-01, 1d
-        List available resources     :a3, 2024-07-02, 1d
-        Set data mining goals    :a4, 2024-07-03, 1d
-        Create project plan    :a5, 2024-07-03, 1d
-        Project checkpoint: milestone, m1, 2024-07-04, 4m
+    section Project Charta
+        Define problem and Determine project goals :a1, 2024-07-01, 2d
+    section Plan
+        List available resources and Set data mining goals :a2, 2024-07-01, 2d
+        Create project plan :a3, 2024-07-01, 2d
     section Data Acquisition and Exploration
-        Acquire data :a6, 2024-07-02, 2d
-        Exploratory data analysis   :a7, 2024-07-03, 2d
-        
-    section Modelling
-        Create initial model   :a8, 2024-07-09, 1d
-        Additional feature engineering :a9, 2024-07-10, 1d
-        Prepare modelling report :a10, 2024-07-10, 2h
-    section Evaluation
-        Prepare presentation :a10, 2024-07-10, 2h
-        Project presentation : milestone, m2, 2024-07-11, 4m
+        Scraping :a4, 2024-07-02, 2d
+        Data Report :a5, 2024-07-03, 2d
+    section Regression Problem
+        Model Development :a6, 2024-07-04, 4d
+        Model Report :a7, 2024-07-05, 1d
+        Evaluation Log :a8, 2024-07-05, 1d
+    section Matching Problem
+        Model Development :a9, 2024-07-05, 4d
+        Model Report :a10, 2024-07-09, 1d
+        Evaluation Log :a11, 2024-07-09, 1d
+    section Presentation
+        Prepare Presentation :a12, 2024-07-10, 1d
+    section Revision
+        Revision :a13, 2024-07-11, 1d
+    section Milestones
+        Project checkpoint: milestone, m1, 2024-07-04, 4m
+        Project presentation: milestone, m2, 2024-07-10, 4m
+
 ```
 See [Mermaid syntax for Gantt charts](https://mermaid.js.org/syntax/gantt.html).
 
