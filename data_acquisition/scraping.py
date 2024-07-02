@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
+# This is really sloppy, but scrape_job_title needs to be refactored before I can fix this.
+def writeHeader() -> None:
+    with open('job_details.csv', 'w', newline='', encoding='utf-8') as output_file:    
+            output_file.write('title,contract_type,company\n')
+    print("Header written to job_details.csv")
+
 def scrape_job_details(url: str) -> None:
     print("Sending request to URL:", url)
     response = requests.get(url)
@@ -36,7 +42,7 @@ def scrape_job_details(url: str) -> None:
         keys = job_details[0].keys()
         with open('job_details.csv', 'a', newline='', encoding='utf-8') as output_file:
             dict_writer = csv.DictWriter(output_file, keys)
-            dict_writer.writeheader()
+            #dict_writer.writeheader()
             dict_writer.writerows(job_details)
         print("Data written to job_details.csv")
     else:
@@ -46,6 +52,23 @@ def updateURL(num: int) -> str:
     return f'https://www.jobs.ch/de/stellenangebote/?page={num}&region=7&term='
 
 # Example usage:
+writeHeader()
 for i in range(5): # Reads the first 5 pages.
     url = updateURL(i+1)
     scrape_job_details(url)
+
+print('''    
+ ██████  ██████  ███    ███ ██████  ██      ███████ ████████ ███████ ██                     
+██      ██    ██ ████  ████ ██   ██ ██      ██         ██    ██      ██                     
+██      ██    ██ ██ ████ ██ ██████  ██      █████      ██    █████   ██                     
+██      ██    ██ ██  ██  ██ ██      ██      ██         ██    ██                             
+ ██████  ██████  ██      ██ ██      ███████ ███████    ██    ███████ ██                     
+                                                                                                                                                                                                        
+                                                    ██ ██                                    
+
+██    ██  ██████  ██      ██      ███████ ████████  █████  ███    ██ ██████  ██  ██████  ██ 
+██    ██ ██    ██ ██      ██      ██         ██    ██   ██ ████   ██ ██   ██ ██ ██       ██ 
+██    ██ ██    ██ ██      ██      ███████    ██    ███████ ██ ██  ██ ██   ██ ██ ██   ███ ██ 
+ ██  ██  ██    ██ ██      ██           ██    ██    ██   ██ ██  ██ ██ ██   ██ ██ ██    ██    
+  ████    ██████  ███████ ███████ ███████    ██    ██   ██ ██   ████ ██████  ██  ██████  ██ 
+''')
