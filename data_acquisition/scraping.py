@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-def scrape_job_details(url):
+def scrape_job_details(url: str) -> None:
     print("Sending request to URL:", url)
     response = requests.get(url)
     response.raise_for_status()  # Raise an exception for bad requests
@@ -34,7 +34,7 @@ def scrape_job_details(url):
     if job_details:
         # Save to CSV file
         keys = job_details[0].keys()
-        with open('job_details.csv', 'w', newline='', encoding='utf-8') as output_file:
+        with open('job_details.csv', 'a', newline='', encoding='utf-8') as output_file:
             dict_writer = csv.DictWriter(output_file, keys)
             dict_writer.writeheader()
             dict_writer.writerows(job_details)
@@ -42,6 +42,10 @@ def scrape_job_details(url):
     else:
         print("No job details to write.")
 
+def updateURL(num: int) -> str:
+    return f'https://www.jobs.ch/de/stellenangebote/?page={num}&region=7&term='
+
 # Example usage:
-url = 'https://www.jobs.ch/de/stellenangebote/?region=7&term='  # Adjust the URL as necessary
-scrape_job_details(url)
+for i in range(5): # Reads the first 5 pages.
+    url = updateURL(i+1)
+    scrape_job_details(url)
