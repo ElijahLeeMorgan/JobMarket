@@ -1,4 +1,4 @@
-# `Sample Project` - Project Charta
+# `JobMarket` - Project Charta
 <!--- Content Based Job Filtration System-->
 
 ## Problem Definition
@@ -145,3 +145,8 @@ See [Mermaid syntax for Gantt charts](https://mermaid.js.org/syntax/gantt.html).
 
 ## Roles and Contact Details
 List the people involved in the development work here with their role titles, tasks and contact details
+Malina Otth, N/A, otthmel1@students.zhaw.ch
+Elijah Morgan, N/A, morgaeli@mail.gvsu.edu
+Dillon Moesch, N/A moeschd@mail.gvsu.edu
+Gian Wurgler, N/A, wuerggia@students.zhaw.ch
+<!--- TODO add titles.-->
