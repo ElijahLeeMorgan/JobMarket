@@ -23,21 +23,23 @@ def fetch_details(url, limit=None):
         title_link = job.find('a', {'data-cy': 'job-link'})
         job_title = title_link['title'] if title_link and 'title' in title_link.attrs else 'Title not available'
 
-        company_name = job.find('strong').get_text(strip=True) if job.find('strong') else 'Company not specified'
-
         # Initialize default values if not found
         contract_type = 'Contract type not available'
         workload = 'Workload not available'
         salary = 'Salary not specified'
 
         # Extract contract type, workload, and salary
-        for p in job.find_all('p', class_='jZCxUn'):
-            if '%' in p.text:
-                workload = p.text.strip()
-            elif 'CHF' in p.text or 'EUR' in p.text:
-                salary = p.text.strip()
-            else:
-                contract_type = p.text.strip()
+        job_info = job.find_all('p', class_='jZCxUn')
+
+        if '%' in job_info[1].text:
+            workload = job_info[1].text.strip()
+            contract_type = job_info[2].text.strip()
+        else:
+            contract_type = job_info[1].text.strip()
+        if 'CHF' in job_info[-2].text or 'EUR' in job_info[-2].text:
+            salary = job_info[-2].text
+
+        company_name = job_info[-1].text
 
         job_info = {
             'title': job_title,
@@ -71,7 +73,7 @@ def fetch_details(url, limit=None):
 
 
 # Starting URL for scraping
-base_url = "https://www.jobs.ch/de/stellenangebote/?location=zürich&term="
+base_url = "https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term="
 
 
 ''' uncomment to test on a few jobs
@@ -86,6 +88,6 @@ print("Test scraping completed for 5 jobs.")
 
 # Uncomment the following lines to run the scaping without limits
 all_job_details = fetch_details(base_url)
-with open('data/all_jobs_data.json', 'w', encoding='utf-8') as json_file:
+with open('data_acquisition/data/all_jobs_data.json', 'w', encoding='utf-8') as json_file:
     json.dump(all_job_details, json_file, ensure_ascii=False, indent=4)
 print("Full scraping completed.")
