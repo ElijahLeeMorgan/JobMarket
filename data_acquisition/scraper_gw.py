@@ -73,7 +73,7 @@ def fetch_details(url, limit=None):
 
 
 # Starting URL for scraping
-base_url = "https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term="
+base_url = "https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=zürich&term="
 
 
 ''' uncomment to test on a few jobs
@@ -88,6 +88,6 @@ print("Test scraping completed for 5 jobs.")
 
 # Uncomment the following lines to run the scaping without limits
 all_job_details = fetch_details(base_url)
-with open('data_acquisition/data/all_jobs_data.json', 'w', encoding='utf-8') as json_file:
+with open('data/all_jobs_data.json', 'w', encoding='utf-8') as json_file:
     json.dump(all_job_details, json_file, ensure_ascii=False, indent=4)
 print("Full scraping completed.")
