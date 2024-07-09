@@ -1,6 +1,6 @@
 import json
 
-with open("data_acquisition/data/all_jobs_data.json", "r", encoding="utf-8") as jsonFile:
+with open("data_acquisition/finalized_data/finalized_data.json", "r", encoding="utf-8") as jsonFile:
      data = json.load(jsonFile)
 
 
@@ -12,5 +12,5 @@ with open("modelling/llm_embedding/data/jobDescriptionEmbeddings.csv", "r", enco
         job_index += 1
 
 
-with open("data_acquisition/data/all_jobs_data.json", "w", encoding="utf-8") as jsonFile:
+with open("data_acquisition/finalized_data/finalized_data.json", "w", encoding="utf-8") as jsonFile:
     json.dump(data, jsonFile, ensure_ascii=False, indent=4)
