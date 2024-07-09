@@ -5,14 +5,38 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 
 ## Raw data
 ### Overview Raw Datasets
-| Name | Quelle | Storage location |
-|----------------|-----------------------------------------|------------------|
-| Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | CSV              |
+| Name      | Quelle                                                                                 | Storage location |
+|-----------|----------------------------------------------------------------------------------------|------------------|
+| Dataset 1 | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | CSV              |
+| Dataset 2 | (descriptions)                                                                         |                  |
 
 ### Details Dataset 1
-- Dataset Contents: title,company,contract_type,salary,description,min_workload,max_workload
-- It is saved in a CSV
-- 
+#### Dataset Overview
+- Title: Job Listings from Zurich/Schaffhausen Region in Engineering Sector
+- Collectors: Malina Otth, Elijah Morgan, Dillon Moesch, Gian Wurgler
+- Purpose: This dataset was collected as part of the 2024 Summer School project focused on Job Market Analysis. The aim is to analyze job roles, demand in skills, and develop models for salary prediction and job recommendation systems. 
+#### Data Collection
+- Source: Jobs.ch
+- Methodology: The data was scraped using BeautifulSoup, targeting job listings in the engineering sector within the Zurich and Schaffhausen regions.
+- Criteria: Listings were selected based on location and industry. Only job listings that fit these criteria were included in the dataset.
+#### Data Content
+- Fields: Job title, company, contract type, salary, job description, workload.
+- Salary Information:
+  - Range: CHF 28,300 to CHF 262,080
+  Available in 110 listings out of 1706
+- Contract Types: Festanstellung (Permanent), Praktikum (Internship), Freelancer
+- Workload: Represented as a percentage, indicating the minimum and maximum expected workload.
+#### Data Description
+- Data Details: Descriptions vary widely, providing insights into company culture, job roles, and specific qualifications required.
+#### Data Integrity and Cleaning
+- Missing Data: Salaries missing in some listings are planned to be predicted using a language model.
+- Duplicates: No duplicates were found in the dataset, ensuring the uniqueness of each listing.
+Data Security and Privacy
+Storage: The dataset is stored in CSV format on each team member's computer.
+- Code Sharing: The scraping and data processing code is shared among team members via GitHub, ensuring transparency and collaborative development.
+Applications and Limitations
+- Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
+- Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
 
 <!---
 - Description of what information the dataset contains
@@ -27,11 +51,14 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 #### Data Catalogue
 The data catalogue basically represents an extended schema of a relational database.
 
-| Column index | Column name |  Datatype | Values (Range, validation rules) | Short description |
-|---|---|---|---|---|
-| 1 |   |   |   |   |
-| 2 |   |   |   |   |
-|   |   |   |   |   |
+| Column index | Column name   |  Datatype | Values (Range, validation rules) | Short description |
+|--------------|---------------|---|---|---|
+| 1            | title         |   |   |   |
+| 2            | company       |   |   |   |
+| 3            | contract_type |   |   |   |
+| 4            | workload      |   |   |   |
+| 5            | salary        |   |   |   |
+| 6            | description   |   |   |   |
 
 
 #### If applicable: Entity Relationship Diagram
