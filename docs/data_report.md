@@ -6,11 +6,12 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 ## Raw data
 ### Overview Raw Datasets
 | Name | Quelle | Storage location |
-|----------------|-----------------------------------------|--------------------------------------------------------------------------|
-| Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | TBD |
+|----------------|-----------------------------------------|------------------|
+| Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | CSV              |
 
 ### Details Dataset 1
-- Dataset Contents: Job Title, Salary, Job Requirements, Language, Workload, Location,
+- Dataset Contents: title,company,contract_type,salary,description,min_workload,max_workload
+- It is saved in a CSV
 - 
 
 <!---

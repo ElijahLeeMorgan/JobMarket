@@ -67,8 +67,8 @@ It is also often helpful to specify what is explicitly excluded from the project
 -->
 ### Goals
 <!--- TODO Subject to change, Python is slow. -->
-- Find the best matches according to: job field, certifications, and years of experience.
-- Factors declaring the best match: Skill matching requierments in %, Jobs.ch lisiting order, salary (descending)
+- Find the best matches according to: similarity of the degree to the job, salary, workload and contract type.
+- Factors declaring the best match: Skill matching requierments in %, Jobs.ch lisiting order, salary (descending) -- based on weights 0.6*score + 0.3*min_salary + 0.1*max_salary
 - Runtime of 10 seconds or less.
 - Application size under 50mb.
 <!--- TODO Change this ^^^ -->
