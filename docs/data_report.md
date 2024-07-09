@@ -31,10 +31,10 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 #### Data Integrity and Cleaning
 - Missing Data: Salaries missing in some listings are planned to be predicted using a language model.
 - Duplicates: No duplicates were found in the dataset, ensuring the uniqueness of each listing.
-Data Security and Privacy
-Storage: The dataset is stored in CSV format on each team member's computer.
+#### Data Security and Privacy
+- Storage: The dataset is stored in CSV format on each team member's computer.
 - Code Sharing: The scraping and data processing code is shared among team members via GitHub, ensuring transparency and collaborative development.
-Applications and Limitations
+#### Applications and Limitations
 - Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
 - Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
 
@@ -51,14 +51,15 @@ Applications and Limitations
 #### Data Catalogue
 The data catalogue basically represents an extended schema of a relational database.
 
-| Column index | Column name   |  Datatype | Values (Range, validation rules) | Short description |
-|--------------|---------------|---|---|---|
-| 1            | title         |   |   |   |
-| 2            | company       |   |   |   |
-| 3            | contract_type |   |   |   |
-| 4            | workload      |   |   |   |
-| 5            | salary        |   |   |   |
-| 6            | description   |   |   |   |
+| Column index | Column name   | Datatype          | Values (Range, validation rules)                              | Short description                                         |
+|--------------|---------------|-------------------|---------------------------------------------------------------|-----------------------------------------------------------|
+| 0            | Index         | Integer, not null |                                                               | Primary Key, Unique identifier for each job listing entry |
+| 1            | title         | string, not null  |                                                               | Job title of the listing                                  |
+| 2            | company       | string, not null  |                                                               | Name of the company offering the job                                                        |
+| 3            | contract_type | string, not null  | Festanstellung (Permanent), Praktikum (Internship), Freelance | Type of employment contract offered                                                          |
+| 4            | workload      | string, not null  | 0% - 100%                                                     | Expected workload expressed as a percentage range                                                         |
+| 5            | salary        | Integer           | from 28300 to 262080                                          | Annual salary or hourly wage offered for the position, expressed in CHF                                                          |
+| 6            | description   | string, not null  |                                                               | Detailed description of the job including responsibilities, qualifications, and other relevant information                                                         |
 
 
 #### If applicable: Entity Relationship Diagram
