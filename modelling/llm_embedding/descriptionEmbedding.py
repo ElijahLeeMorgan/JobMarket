@@ -5,29 +5,6 @@ from sentence_transformers import SentenceTransformer
 
 # This file is used to generate embeddings for job descriptions and compare them to a student's description.
 
-''' I was about to classify everything, but I'd have to write "self." everywhere, and it's not worth my time.
-class DescriptionEmbedding:
-    def __init__(self) -> None:
-        self._model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
-        self._filePath = "../data/jobDescriptionEmbeddings.csv"
-        
-    @property
-    def model(self):
-        return self._model
-    
-    @model.setter
-    def model(self, model):
-        self._model = model
-
-    @property
-    def filePath(self):
-        return self._filePath
-    
-    @filePath.setter
-    def filePath(self, filePath):
-        self._filePath = filePath
-'''    
-
 # Reads data from JSON file.
 def readData() -> list[str]:
     with open("../../data_acquisition/data/all_jobs_data.json", "r", encoding="utf-8") as file:
@@ -76,9 +53,11 @@ def compareStudentDescription(compareDescription: list[str], printTopScores:bool
     model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     filePath = "./data/jobDescriptionEmbeddings.csv"
 
-    print("Encoding student description...")
-    compareDescription_embedding = model.encode(compareDescription, convert_to_tensor=True, show_progress_bar=True)
-    print("Loading embeddings...")
+    print("Loading degree embeddings...")
+    compareDescription_embedding = loadEmbeddings(pathToFile="./data/degreeDescriptionEmbeddings.csv")
+    #print("Encoding student description...")
+    #compareDescription_embedding = model.encode(compareDescription, convert_to_tensor=True, show_progress_bar=True)
+    print("Loading job embeddings...")
     description_embedding = loadEmbeddings(pathToFile=filePath)
     top_k = min(numOutputScores, len(description_embedding))
 
@@ -86,7 +65,7 @@ def compareStudentDescription(compareDescription: list[str], printTopScores:bool
     similarity_scores = model.similarity(compareDescription_embedding, description_embedding)[0]
     scores, indicies = topk(similarity_scores, k=top_k)
 
-    print(f"Top {numOutputScores} most similar sentences in database:")
+    print(f"Top {numOutputScores} mo st similar sentences in database:")
     outputScores = zip(scores, indicies)
     
     if printTopScores:
@@ -94,8 +73,19 @@ def compareStudentDescription(compareDescription: list[str], printTopScores:bool
             print(f"{index}: {readData()[index][:50]}... | Score: {score}")
     return outputScores
 
-''' Example Usage:
+def readDegree(degree: str) -> list[float]:
+    with open("./data/bachelor_degree_information.json", "r", encoding="utf-8") as file:
+        for degree in file:
+            ...
+    file.close()
+    print(degreeDict)
+    
+    with open("./data/degreedescriptionEmbeddings.csv", "r", encoding="utf-8") as file:
+        embeddings = file.read().split("\n")[index]
+        file.close()
+    return embeddings
+
 if __name__ == "__main__":
     filterwarnings("ignore")
-    compareStudentDescription(["Batchelor's Degree, 80% workload, and Java are my best skills."], printTopScores=True)
-'''
+    #compareStudentDescription(["Batchelor's Degree, 80% workload, and Java are my best skills."], printTopScores=True, numOutputScores=100)
+    #readDegree("Bachelorstudium Data Science")
