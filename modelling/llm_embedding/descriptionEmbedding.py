@@ -2,6 +2,7 @@ from torch import topk
 from json import load
 from warnings import filterwarnings
 from sentence_transformers import SentenceTransformer
+import pandas as pd
 
 # This file is used to generate embeddings for job descriptions and compare them to a student's description.
 
@@ -48,7 +49,7 @@ def generateEmbeddings(compareDescription: list[str]) -> None: # WARNING: This f
     print("Storing embeddings...")
     storeEmbeddings(description_embedding, pathToFile=filePath)
 
-
+'''
 def compareStudentDescription(compareDescription: list[str], printTopScores:bool=False, numOutputScores:int=5) -> list[float, int]:
     model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     filePath = "./data/jobDescriptionEmbeddings.csv"
@@ -72,20 +73,37 @@ def compareStudentDescription(compareDescription: list[str], printTopScores:bool
         for score, index in outputScores:
             print(f"{index}: {readData()[index][:50]}... | Score: {score}")
     return outputScores
+'''
 
-def readDegree(degree: str) -> list[float]:
-    with open("./data/bachelor_degree_information.json", "r", encoding="utf-8") as file:
-        for degree in file:
-            ...
-    file.close()
-    print(degreeDict)
+def matchJobsToDegree(jobDataFrame:pd.DataFrame, printOutput:bool=False, numOutputScores:int=10) -> pd.DataFrame:
+    jobs = jobDataFrame    
+    model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+    numOutputs = min(len(jobDataFrame), numOutputScores)
+
+    print("Retrieving job embeddings...")
+    jobEmbeddings = jobs["embeddings"].tolist()
+
+    print("Loading degree embeddings...")
+    descriptionEmbeddings = loadEmbeddings(pathToFile="./data/degreeDescriptionEmbeddings.csv")
+
+    if printOutput:
+        print(f"Top {numOutputScores} most similar sentences in database:")
     
-    with open("./data/degreedescriptionEmbeddings.csv", "r", encoding="utf-8") as file:
-        embeddings = file.read().split("\n")[index]
-        file.close()
-    return embeddings
+    simScores = model.similarity(descriptionEmbeddings, jobEmbeddings)[0]
+
+    scores, indicies = topk(simScores, k=numOutputs)
+
+    jobs.insert(3, "similarityScore", scores)
+
+    return jobs
+    
+
+
+
 
 if __name__ == "__main__":
     filterwarnings("ignore")
     #compareStudentDescription(["Batchelor's Degree, 80% workload, and Java are my best skills."], printTopScores=True, numOutputScores=100)
     #readDegree("Bachelorstudium Data Science")
+
+
