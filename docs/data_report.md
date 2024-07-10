@@ -7,7 +7,7 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 ### Overview Raw Datasets
 | Name      | Quelle                                                                                 | Storage location |
 |-----------|----------------------------------------------------------------------------------------|------------------|
-| Dataset 1 | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | CSV              |
+| Dataset 1 | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=) | CSV              |
 | Dataset 2 | (descriptions)                                                                         |                  |
 
 ### Details Dataset 1
