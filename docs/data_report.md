@@ -36,7 +36,7 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 - Duplicates: No duplicates were found in the dataset, ensuring the uniqueness of each listing.
 #### Data Security and Privacy
 - Storage: The dataset is stored in CSV format on each team member's computer.
-# da no ane schriebe wo date gspeicheret sind
+- Security: Data put in gitignore, for data access contact one of the project members.
 #### Applications and Limitations
 - Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
 - Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
@@ -104,7 +104,7 @@ The data catalogue basically represents an extended schema of a relational datab
 - Duplicates: No duplicates in data.
 #### Data Security and Privacy
 - Storage: The dataset is stored in json format on each team member's computer.
-# da no ane schriebe wo date gspeicheret sind
+- Security: Data put in gitignore, for data access contact one of the project members.
 #### Applications and Limitations
 - Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
 - Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
@@ -174,12 +174,14 @@ The dataset has been segmented into three distinct dataframes for specialized an
 | 8            | Description    | String |                                                                | Detailed job description                 |
 
 
-
+<!--
 ### Details Processed Dataset 2
 - Description of what information the dataset contains
 - Details and reasons for the processing steps -> Traceability and ensuring reproducibility
 - How can the data be accessed? Description, scripts, tools, ...
 - ...
+-->
+
 ### Details Processed Dataset 2
 #### Addition of embedding value:
 Added an embedding to each degree which is used to calculate the similarity score to each job. This allows all jobs to be ranked according to each degree's embedding.

@@ -45,15 +45,17 @@ with col1:
     st.header('Study Program')
     selected_title = st.selectbox('Select your study program', study_programs['title'].unique())
     selected_program = study_programs[study_programs['title'] == selected_title]
+
     st.header('Workload')
-    workload = st.slider('Select the minimum workload percentage', 0, 100, st.session_state['workload'], step=5, key='workload')
+    workload = st.slider('Select the minimum workload percentage', 0, 100, st.session_state['workload'], step=5, format="%d%%", key='workload')
     st.number_input('Or enter the minimum percentage', min_value=0, max_value=100, value=workload, step=5, key='input_workload', on_change=lambda: st.session_state.update({'workload': st.session_state.input_workload}))
 
 with col2:
     st.header('Contract Type')
     selected_contract_type = st.selectbox('Select contract type', ['any'] + list(jobs_df['contract_type'].unique()))
+
     st.header('Salary')
-    salary = st.slider('Select your minimum expected salary', 0, 400000, st.session_state['salary'], step=1000, key='salary')
+    salary = st.slider('Select your minimum expected salary', 0, 400000, st.session_state['salary'], step=1000, format="CHF %d", key='salary')
     st.number_input('Or enter your desired minimum salary', min_value=0, max_value=400000, value=salary, step=1000, key='input_salary', on_change=lambda: st.session_state.update({'salary': st.session_state.input_salary}))
 
 # Button to find jobs at the end
