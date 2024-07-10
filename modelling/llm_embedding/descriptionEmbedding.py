@@ -86,7 +86,7 @@ def matchJobsHelper(data):
 
 def matchJobsToDegree(jobDataFrame:pd.DataFrame, printOutput:bool=False, numOutputScores:int=5, degreeChoice:int=-1) -> pd.DataFrame:
     jobs = jobDataFrame
-    degrees = pd.read_json("./data/bachelor_degree_information.json") # Hardcoded for now (forever).
+    degrees = pd.read_json("../../data_acquisition/finalized_data/bachelor_degree_information.json") # Hardcoded for now (forever).
     model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     numOutputs = max(len(jobDataFrame["embedding"]), numOutputScores)
 
