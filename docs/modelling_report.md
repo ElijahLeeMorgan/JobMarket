@@ -1,17 +1,32 @@
 # `Job Market Analysis` - Modelling Report
 ## Initial situation
-- Salary prediction based on workload percentage and company via an LLM.
+- Data Source: The dataset was derived from Jobs.ch and included comprehensive job listing details such as company names, job titles, descriptions, and workload, focusing on tech jobs in the Zurich region.
+### Salary prediction LLM:
+- Objective: Our project aimed to leverage advanced machine learning models to predict missing salary data and enhance job matching capabilities.
+- Technological Backbone: We chose the LLaMA3-70B model developed by Meta due to its large context window of 8,192 tokens, which supports complex input and output relationships.
+
+### Embedding & Cosinussimilarity??
 - Matching program and job descriptions via a LLM.
 - Jobs.ch provided all our data on Tech jobs in the Zurich reigon.
 - Independant varibles: Company, Salary (if applicable), Workload, Job Description, Degree Description, Degree Requirements. 
 - Dependant varibles: Predicted Salaries (if applicable), Similarity Score, Job Ranking
 
+
 ## Model Descriptions
-- Salary prediction LLM:
-- Description similarity LLM: [SentenceTransformers 3.0.1](https://www.sbert.net/) library with the: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) pre-trained model.
-<!--
+### Salary prediction LLM:
+#### LLaMA3-70B Model Configuration:
+- Model ID: llama3-70b-8192
+- Developer: Meta
+- Purpose: Selected for its capability to process extensive data blocks and generate accurate predictions based on job listing details.
+#### Prompt Engineering:
+- Utilized direct features from the dataset: Job title, company, min workload, max workload, contract type and job descriptions. Start with one feature and with each try add one more.
+- Few-Shot Learning Approach: Began with a base block of five salary examples, incrementally adding data blocks, the same as the directed features, to assess improvements in predictive accuracy.
+
+### Embedding & Cosinussimilarity??
+- [SentenceTransformers 3.0.1](https://www.sbert.net/) library with the: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) pre-trained model.
 - Graphical representation of the modelling pipeline
 
+<!---
 ## Results
 Key figures dependent on the model and modelling objective
 
@@ -21,11 +36,37 @@ Key figures dependent on the model and modelling objective
 -->
 
 ## Model Interpretation
+### Salary prediction LLM:
+#### Training and Evaluation:
+####bimer ned ganz sicher wege test und train dataset
+- Dataset Utilization: 106 data points with salaries for training and 5 for few-shot learning setup.
+- Test Dataset: Comprised of job listings lacking salary information.
+- Metrics Used: RMSE and Overlap Coefficient, with a focus on how each block addition impacted performance.
+- Best Results: Block 1, focusing on the job title, yielded an RMSE of 19,828.07 and an Overlap Coefficient of 0.43.
+#### Challenges:
+- Faced API rate limits which paused the modeling process, reflecting the need for strategic session management and possibly seeking more robust API access for future tasks.
+
+### Embedding & Cosinussimilarity??
 - Sucessfully predicted Salary and matched student degrees to avaible jobs. 
 - Based on our model findings, we can effectively match tech jobs to student skills and prefrences.
 - Despite restrictions to tech industry jobs within the Zurich reigon, we're capable of reducing a student's job search.
 
 ## Conclusions and next steps
+### Salary prediction LLM:
+#### Achievements: 
+- Successfully integrated an LLM to predict salaries and match job descriptions effectively, demonstrating the feasibility and efficiency of using AI in real-world job market scenarios.
+#### Limitations and Improvements:
+- Currently limited to tech jobs in the Zurich region. Expanding to other industries and regions could enhance the model’s utility and applicability.
+- Our analysis is presently confined to job listings exclusively sourced from Jobs.ch. To enhance the diversity and representativeness of our dataset, one could expande the scope of our data collection to include multiple job portals.
+- Transition to fine-tuned models for specific data subsets to improve accuracy and relevance.
+#### Future Directions:
+- Include a broader range of job listings from multiple sources to diversify the data and enhance model robustness.
+- Implement a permanent database solution for ongoing data management and model training.
+#### Deployment: 
+- The model's predictions can be utilized in real-time if integrated within a dynamic job-matching platform, ensuring continuous relevance and utility.
+
+
+### Embedding & Cosinussimilarity??
 - Currenlty, our project is limited to tech jobs posted by Jobs.ch within the Zurich reigon.
 - If this project were to continue through production, we'd expand the project to all industries in Zurich and pull from multiple data sources.
 - In addition, our generic LLM models would be improved or replaced with fine-tuned LLM models. Finally, a true database solution would implemented to store and organize our data.
