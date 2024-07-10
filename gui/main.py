@@ -7,8 +7,7 @@ import ast
 # Define weights for the ranking
 weights = {
     'similarity_score': 0.96,
-    'min_salary': 0.025,
-    'max_salary': 0.015
+    'diff_salary': 0.04,
 }
 
 
@@ -72,8 +71,7 @@ def score(df, sp):
 
 def ranking(df):
     df['matching_score'] = ((weights['similarity_score'] * df['similarity_score']) +
-                            (weights['min_salary'] * df['diff_salary']) +
-                            (weights['max_salary'] * df['max_salary']))
+                            (weights['diff_salary'] * df['diff_salary']))
     ranked_df = df.sort_values(by='matching_score', ascending=False)
     return ranked_df
 

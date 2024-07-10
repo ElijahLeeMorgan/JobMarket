@@ -44,13 +44,15 @@ You can reference more detailed analyses such as individual "personas" or interv
 
 ### Material
 - Laptops
-- Internet 
+- Internet
 <!-- ^^^ We didn't really know what to put here. ^^^ -->
 
 ### Software
 - Python 3.11+
 - Visual Studio Code
+- PyCharm
 - BeautifulSoup
+- Streamlit
 - mydata-python
 - word2vec
 <!--- SQL, MySQL, etc? -->
@@ -67,12 +69,12 @@ It is also often helpful to specify what is explicitly excluded from the project
 -->
 ### Goals
 <!--- TODO Subject to change, Python is slow. -->
-- Find the best matches according to: similarity of the degree to the job, salary, workload and contract type.
-- Factors declaring the best match: Skill matching requierments in %, Jobs.ch lisiting order, salary (descending) -- based on weights 0.6*score + 0.3*min_salary + 0.1*max_salary
+- Find the best matches according to: similarity of the degree to the job, salary and filter for workload percentage, salary and contract type.
+- Factors declaring the best match: Skill matching requierments in %, salary difference from the desired salary (descending) -- based on weights 0.96*score + 0.04*difference
 - Runtime of 10 seconds or less.
 - Application size under 50mb.
 <!--- TODO Change this ^^^ -->
-- Predict salaries within 10,000 CHF per year.
+- Predict salaries within 20,000 CHF per year.
 
 ### Out of Scope
 - Providing benefits/services to employers and schools.
@@ -83,8 +85,9 @@ It is also often helpful to specify what is explicitly excluded from the project
 - Regions other than Zurich.
 
 ### Data Mining Goals
-- Regression: Salary Prediction based on workload percentage and company.
-  - Measuerment: MSE
+- LLM prediction: Salary Prediction based on best working combination of available features about the job.
+  - Measuerment: RMSE
+  - overlap of salary range and predicted salary range in %.
 - Matching: Vectorization/Embedding of job descriptions and program descriptions.
    - Measuerment: Similarity score. 
 
@@ -117,36 +120,38 @@ gantt
     dateFormat YYYY-MM-DD
     tickInterval 5day
     section Project Charta
-        Define problem and Determine project goals :a1, 2024-07-01, 2d
+        Define problem goals :a1, 2024-07-01, 2d
     section Plan
-        List available resources and Set data mining goals :a2, 2024-07-01, 2d
+        Complete Project charta :a2, 2024-07-01, 2d
         Create project plan :a3, 2024-07-01, 2d
     section Data Acquisition and Exploration
         Scraping :a4, 2024-07-02, 2d
         Data Report :a5, 2024-07-03, 2d
-    section Regression Problem
+    section LLM prediction Problem
         Model Development :a6, 2024-07-04, 4d
-        Model Report :a7, 2024-07-05, 1d
-        Evaluation Log :a8, 2024-07-05, 1d
+        Model Report :a7, 2024-07-08, 1d
+        Evaluation Log :a8, 2024-07-08, 1d
     section Matching Problem
         Model Development :a9, 2024-07-05, 4d
         Model Report :a10, 2024-07-09, 1d
         Evaluation Log :a11, 2024-07-09, 1d
+    section Streamlit visualisation
+        Create Streamlit webpage :a12, 2024-07-09, 2d
     section Presentation
-        Prepare Presentation :a12, 2024-07-10, 1d
+        Prepare Presentation :a13, 2024-07-10, 1d
     section Revision
-        Revision :a13, 2024-07-11, 1d
+        Revision :a14, 2024-07-11, 1d
     section Milestones
         Project checkpoint: milestone, m1, 2024-07-04, 4m
-        Project presentation: milestone, m2, 2024-07-10, 4m
+        Project presentation: milestone, m2, 2024-07-11, 15m
 
 ```
 See [Mermaid syntax for Gantt charts](https://mermaid.js.org/syntax/gantt.html).
 
 ## Roles and Contact Details
 List the people involved in the development work here with their role titles, tasks and contact details
-Malina Otth, N/A, otthmel1@students.zhaw.ch
-Elijah Morgan, N/A, morgaeli@mail.gvsu.edu
-Dillon Moesch, N/A moeschd@mail.gvsu.edu
-Gian Wurgler, N/A, wuerggia@students.zhaw.ch
+Melina Otth, Team Lead, otthmel1@students.zhaw.ch
+Elijah Morgan, Developer, morgaeli@mail.gvsu.edu
+Dillon Moesch, Developer, moeschd@mail.gvsu.edu
+Gian Wurgler, Developer, wuerggia@students.zhaw.ch
 <!--- TODO add titles.-->
