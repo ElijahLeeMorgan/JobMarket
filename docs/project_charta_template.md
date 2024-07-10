@@ -136,11 +136,11 @@ gantt
     section Streamlit visualisation
         Create Streamlit webpage :a12, 2024-07-09, 2d
     section Presentation
-        Prepare Presentation :a13, 2024-07-10, 1d
+        Prep Presentation :a13, 2024-07-10, 1d
     section Revision
         Revision :a14, 2024-07-11, 1d
     section Milestones
-        Project checkpoint: milestone, m1, 2024-07-04, 4m
+        Project checkpoint: milestone, m1, 2024-07-05, 15m
         Project presentation: milestone, m2, 2024-07-11, 15m
 
 ```

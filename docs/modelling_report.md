@@ -5,7 +5,10 @@
 - Objective: Our project aimed to leverage advanced machine learning models to predict missing salary data and enhance job matching capabilities.
 - Technological Backbone: We chose the LLaMA3-70B model developed by Meta due to its large context window of 8,192 tokens, which supports complex input and output relationships.
 
-### Embedding & Cosinussimilarity??
+### Embedding & Cosinus Similarity
+- Objective: Our project aimed to rank similarity of job descriptions to degree descriptions while improving job matching accuracy via Machine Learning technologies.
+- Technological Backbone: We choose the paraphrase-multilingual-MiniLM-L12-v2 model developed by the Association for Computational Linguistics due to it's cross-lingual capabilites while maintaing a high degree of accuracy.
+
 - Matching program and job descriptions via a LLM.
 - Jobs.ch provided all our data on Tech jobs in the Zurich reigon.
 - Independant varibles: Company, Salary (if applicable), Workload, Job Description, Degree Description, Degree Requirements. 
@@ -22,9 +25,11 @@
 - Utilized direct features from the dataset: Job title, company, min workload, max workload, contract type and job descriptions. Start with one feature and with each try add one more.
 - Few-Shot Learning Approach: Began with a base block of five salary examples, incrementally adding data blocks, the same as the directed features, to assess improvements in predictive accuracy.
 
-### Embedding & Cosinussimilarity??
-- [SentenceTransformers 3.0.1](https://www.sbert.net/) library with the: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) pre-trained model.
-- Graphical representation of the modelling pipeline
+### Embedding & Cosinussimilarity
+- Model ID: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
+- Developer: Huggingface
+- Purpose: Selected for it's cross-lingual capabilities to accurately compare similarity of job and degree descriptions.
+- Library: [SentenceTransformers 3.0.1](https://www.sbert.net/)
 
 <!---
 ## Results
@@ -45,10 +50,13 @@ Key figures dependent on the model and modelling objective
 #### Challenges:
 - Faced API rate limits which paused the modeling process, reflecting the need for strategic session management and possibly seeking more robust API access for future tasks.
 
-### Embedding & Cosinussimilarity??
+### Embedding & Cosinussimilarity
 - Sucessfully predicted Salary and matched student degrees to avaible jobs. 
 - Based on our model findings, we can effectively match tech jobs to student skills and prefrences.
 - Despite restrictions to tech industry jobs within the Zurich reigon, we're capable of reducing a student's job search.
+#### Challenges
+- Mismatched datatype conversions and missing job description data, potential need for generated content in future implementations. 
+- Combining generated embeddings to their respective datasets while maintaing data structure.
 
 ## Conclusions and next steps
 ### Salary prediction LLM:
@@ -63,9 +71,3 @@ Key figures dependent on the model and modelling objective
 - Implement a permanent database solution for ongoing data management and model training.
 #### Deployment: 
 - The model's predictions can be utilized in real-time if integrated within a dynamic job-matching platform, ensuring continuous relevance and utility.
-
-
-### Embedding & Cosinussimilarity??
-- Currenlty, our project is limited to tech jobs posted by Jobs.ch within the Zurich reigon.
-- If this project were to continue through production, we'd expand the project to all industries in Zurich and pull from multiple data sources.
-- In addition, our generic LLM models would be improved or replaced with fine-tuned LLM models. Finally, a true database solution would implemented to store and organize our data.
