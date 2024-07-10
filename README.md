@@ -1,4 +1,4 @@
-# Job Market Analysis Project
+# Job Market Analysis 
 <!--
 Change `sample` to the respective project name in
 * filename of .yml file
@@ -32,7 +32,7 @@ $ conda activate jobMarket
 
 **Check the version** of a specific package (e.g. `html5lib`) in the environment:
 ```sh
-$ conda list html5lib
+$ conda list scipy
 ```
 
 **Export** an environment file across platforms:
