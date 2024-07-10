@@ -8,7 +8,7 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 | Name      | Quelle                                                                                 | Storage location |
 |-----------|----------------------------------------------------------------------------------------|------------------|
 | Dataset 1 | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=) | JobMarket\data_acquisition\data\all_jobs_data.json                 |
-| Dataset 2 | (descriptions)                                                                         |                  |
+| Dataset 2 | ([zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json                                                                         |                  |
 
 ### Data Acquisition
 - Code Sharing: The scraping and data processing code is shared among team members via GitHub, ensuring transparency and collaborative development.
@@ -40,7 +40,7 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 #### Applications and Limitations
 - Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
 - Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
-
+  
 <!---
 - Description of what information the dataset contains
 - Details of the data source/provider
@@ -80,6 +80,58 @@ The data catalogue basically represents an extended schema of a relational datab
 - Duplicate Analysis: While no identical duplicates were found, the dataset contains multiple entries from the same companies, reflecting different job listings. This repetition is appropriate given the dataset's purpose to provide a comprehensive view of available opportunities in the specified sectors and regions.
 #### Data Timeliness
 - Relevance: The dataset is highly recent, scraped last week, making it extremely relevant for immediate analysis and use in predicting current market trends and demands.
+#### Data Usability
+- Accessibility and Extension: The dataset, along with the scraping code available on GitHub, allows for continuous updates and easy access, making it highly usable for ongoing job market analysis. Anyone with access to the scraping code can retrieve updated and current data, enhancing the dataset's utility over time.
+
+### Details Dataset 2
+#### Dataset Overview
+- Title: Tech bachelors degrees and master degrees
+- Collectors: Malina Otth, Elijah Morgan, Dillon Moesch, Gian Wurgler
+- Purpose: This dataset was collected as part of the 2024 Summer School project focused on Job Market Analysis. The aim is to analyze which jobs students can apply to based on the tech degree they have. 
+#### Data Collection
+- Source: zhaw.ch
+- Methodology: The data was scraped manually as several degrees had their websites designed differently making automated scraping difficult.
+- Criteria: Only tech related degrees where included.
+#### Data Content
+- Fields: url, title, curriculum, relevance.
+- url Information: recorded for referencing
+- title: recorded for referencing
+- curriculum/relevance: used to calculate simularity scores
+#### Data Description
+- Data Details: Includes the curriculum that is followed to obtain each degree and the relevance each degree brings to the job market
+#### Data Integrity and Cleaning
+- Missing Data: No missing data.
+- Duplicates: No duplicates in data.
+#### Data Security and Privacy
+- Storage: The dataset is stored in json format on each team member's computer.
+# da no ane schriebe wo date gspeicheret sind
+#### Applications and Limitations
+- Potential Uses: The dataset supports the development of a salary prediction model, job recommendation system, and analysis of in-demand skills within the specified region and sector.
+- Limitations: Salary data is not available for all listings, which may affect the accuracy of the salary prediction model.
+
+#### Data Catalogue
+The data catalogue basically represents an extended schema of a relational database.
+
+| Column index | Column name   | Datatype | Values (Range, validation rules)                             | Short description                                             |
+|--------------|---------------|--------|----------------------------------------------------------------|---------------------------------------------------------------|
+| 0            | url           | string |                                                                | Primary Key, Unique identifier for each degree listing entry  |
+| 1            | title         | string |                                                                | Name of the degree                                            |
+| 2            | curriculum    | string |                                                                | the curriculum ZHAW offers to obtain the degree               |
+| 3            | relevance     | string |                                                                | the relevance of the degree to the job market                 |
+
+- ### Data Quality Dataset 2
+#### Data Collection Overview
+- Collection Period: Data was scraped on July 4, 2024.
+#### Data Completeness
+- Missing Data: No data was missing
+#### Data Accuracy
+- Verification Process: Relative degree information was manually selected.
+#### Data Consistency
+- Handling Inconsistencies: Relative degree information often changed location between each degree, relative information was found manually and then recorded in a json file.
+#### Data Uniqueness
+- Duplicate Analysis: Each degree had a unique URL, title, curriculum, and relevance value.
+#### Data Timeliness
+- Relevance: The dataset is highly recent, using the most recent update of the website.
 #### Data Usability
 - Accessibility and Extension: The dataset, along with the scraping code available on GitHub, allows for continuous updates and easy access, making it highly usable for ongoing job market analysis. Anyone with access to the scraping code can retrieve updated and current data, enhancing the dataset's utility over time.
 
