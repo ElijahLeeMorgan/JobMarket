@@ -37,10 +37,9 @@ Key figures dependent on the model and modelling objective
 
 ## Model Interpretation
 ### Salary prediction LLM:
-#### Training and Evaluation:
-####bimer ned ganz sicher wege test und train dataset
-- Dataset Utilization: 106 data points with salaries for training and 5 for few-shot learning setup.
-- Test Dataset: Comprised of job listings lacking salary information.
+#### Evaluation:
+- Labled Dataset: 106 data points with salaries for evaluation and 5 for few-shot learning setup.
+- Unlabled Dataset: Comprised of job listings lacking salary information.
 - Metrics Used: RMSE and Overlap Coefficient, with a focus on how each block addition impacted performance.
 - Best Results: Block 1, focusing on the job title, yielded an RMSE of 19,828.07 and an Overlap Coefficient of 0.43.
 #### Challenges:

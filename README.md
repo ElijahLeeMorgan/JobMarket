@@ -10,7 +10,7 @@ Adapted the `LICENSE` as required.
 
 Provide a brief description of the project here.
 -->
-This project matches students to Zurich region tech jobs based on their [ZHAW](https://www.zhaw.ch/en/university/) degree, salary expectations and preferred workload percretage.
+This project matches students to Zurich region tech jobs based on their [ZHAW](https://www.zhaw.ch/en/university/) degree, salary expectations and preferred workload percentage.
 
 ## Python Environment Setup and Management
 **Install** conda environment:

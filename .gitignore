@@ -131,3 +131,5 @@ dmypy.json
 # Data
 job_details.csv
 all_jobs_data.json
+*.json
+*.csv

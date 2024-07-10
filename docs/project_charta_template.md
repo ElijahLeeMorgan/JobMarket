@@ -2,8 +2,6 @@
 <!--- Content Based Job Filtration System-->
 
 ## Problem Definition
-Formulate the problem and important information about the domain and/or business area in which the product is to be developed: What exactly is the problem and the expected benefit of the project? Why should we undertake this effort?:
-
 Students often lack clear insights into the job market, making it difficult for them to understand where they can apply their skills and what opportunities are available. Existing career resources are often outdated/not specific enough to provide insights, especially in Zürich. Our product provides students with a curated job selection that aligns closest to their skills and certifications.
 
 <!---
