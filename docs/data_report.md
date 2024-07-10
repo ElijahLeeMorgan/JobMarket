@@ -112,7 +112,7 @@ The data catalogue basically represents an extended schema of a relational datab
 #### Data Catalogue
 The data catalogue basically represents an extended schema of a relational database.
 
-| Column index | Column name   | Datatype | Values (Range, validation rules)                             | Short description                                             |
+| Column index | Column name   |Datatype| Values (Range, validation rules)                               | Short description                                             |
 |--------------|---------------|--------|----------------------------------------------------------------|---------------------------------------------------------------|
 | 0            | url           | string |                                                                | Primary Key, Unique identifier for each degree listing entry  |
 | 1            | title         | string |                                                                | Name of the degree                                            |
@@ -141,7 +141,7 @@ The data catalogue basically represents an extended schema of a relational datab
 | Name | Quelle                                    | Storage location                                                                                                                                                              |
 |----------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Processed Dataset 1      | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=)                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
-| Processed Dataset 2      | Name/short description of the data source | Link and/or short description of the location where the data is stored, e.g. accessible to the team                                                                           |
+| Processed Dataset 2      | ([zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json                                                                           |
 
 ### Details Processed Dataset 1
 #### Workload Splitting:
@@ -180,3 +180,18 @@ The dataset has been segmented into three distinct dataframes for specialized an
 - Details and reasons for the processing steps -> Traceability and ensuring reproducibility
 - How can the data be accessed? Description, scripts, tools, ...
 - ...
+### Details Processed Dataset 2
+#### Addition of embedding value:
+Added an embedding to each degree which is used to calculate the similarity score to each job. This allows all jobs to be ranked according to each degree's embedding.
+#### Usage Preparation
+bachelor_degree_information: Has all the data related to student's degrees allowing similarity scores to be calculated.
+#### Data Catalogue
+
+| Column index | Column name   | Datatype     | Values (Range, validation rules)                               | Short description                                                     |
+|--------------|---------------|--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
+| 0            | url           | string       |                                                                | Primary Key, Unique identifier for each degree listing entry          |
+| 1            | title         | string       |                                                                | Name of the degree                                                    |
+| 2            | curriculum    | string       |                                                                | the curriculum ZHAW offers to obtain the degree                       |
+| 3            | relevance     | string       |                                                                | the relevance of the degree to the job market                         |
+| 4            | embedding     | list\[float\]| Range(-1, 1)                                                   | the relevant tensor for the degree, used to calculate simularity score|
+
