@@ -1,4 +1,5 @@
 # Job Market Analysis 
+![Job Market Analysis Homepage](figs/ZHAWProject.jpeg)
 <!--
 Change `sample` to the respective project name in
 * filename of .yml file
