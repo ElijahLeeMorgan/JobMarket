@@ -88,7 +88,7 @@ The data catalogue basically represents an extended schema of a relational datab
 ### Overview Processed Datasets
 | Name | Quelle                                    | Storage location                                                                                                                                                              |
 |----------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Processed Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon]([https://www.jobs.ch/en/vacancies/?region=7&term=](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=))                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
+| Processed Dataset 1      | [Jobs.ch, Tech jobs in the Zurich Reigon]([https://www.jobs.ch/en/vacancies/?region=7&term=](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=)                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
 | Processed Dataset 2      | Name/short description of the data source | Link and/or short description of the location where the data is stored, e.g. accessible to the team                                                                           |
 
 ### Details Processed Dataset 1
