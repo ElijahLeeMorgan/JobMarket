@@ -141,7 +141,7 @@ The data catalogue basically represents an extended schema of a relational datab
 | Name | Quelle                                    | Storage location                                                                                                                                                              |
 |----------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Processed Dataset 1      | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=)                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
-| Processed Dataset 2      | ([zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json                                                                           |
+| Processed Dataset 2      | [zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json                                                                           |
 
 ### Details Processed Dataset 1
 #### Workload Splitting:
