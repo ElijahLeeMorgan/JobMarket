@@ -1,17 +1,13 @@
 name: jobMarket
 channels:
-  - anaconda
-  - conda-forge
   - defaults
 dependencies:
-  - bokeh
-  - jupyterlab
+  - gensim
+  - nltk
   - pandas
-  - pandas-profiling
-  - python
-  - scikit-learn
-  - scikit-plot
-  - seaborn
-  - pip
-  - pip:
-      - python-dotenv
+  - scipy
+  - transformers
+  - pytorch
+  - conda-forge::sentencepiece
+  - protobuf==4.25.3
+  - sentence-transformers
