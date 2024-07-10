@@ -1,4 +1,4 @@
-from torch import topk, as_tensor
+from torch import topk
 from json import load
 from warnings import filterwarnings
 from sentence_transformers import SentenceTransformer
@@ -73,11 +73,22 @@ def compareStudentDescription(compareDescription: list[str], printTopScores:bool
     return outputScores
 '''
 
+def matchJobsHelper(data):
+    result = []
+    for embedding in data:
+        split_floats = embedding.split(",")
+        tensor = []
+        for num in split_floats:
+            tensor.append(float(num))
+        result.append(tensor)
+    return result
+
+
 def matchJobsToDegree(jobDataFrame:pd.DataFrame, printOutput:bool=False, numOutputScores:int=5, degreeChoice:int=-1) -> pd.DataFrame:
     jobs = jobDataFrame
     degrees = pd.read_json("./data/bachelor_degree_information.json") # Hardcoded for now (forever).
     model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
-    numOutputs = min(len(jobDataFrame["embedding"]), numOutputScores)
+    numOutputs = max(len(jobDataFrame["embedding"]), numOutputScores)
 
     #TODO Rewrite as an error/warning.
     if degreeChoice < 0 or degreeChoice > 10:
@@ -86,7 +97,6 @@ def matchJobsToDegree(jobDataFrame:pd.DataFrame, printOutput:bool=False, numOutp
             degreeChoice = (int(inStr) % 11) - 1
         else:
             print("Please enter a number.")
-    
 
     print("Retrieving job embeddings...") if printOutput else None
     jobEmbeddings = jobs["embedding"]
@@ -94,12 +104,11 @@ def matchJobsToDegree(jobDataFrame:pd.DataFrame, printOutput:bool=False, numOutp
     print("Loading degree embeddings...") if printOutput else None
     degreeEmbeddings = degrees["embedding"]
 
-    map(float(), jobEmbeddings)
-    map(float(), degreeEmbeddings)
+    # Please oh god do not look into this fucking mess, holy steezus christo.
+    jobEmbeddings = matchJobsHelper(jobEmbeddings)
+    degreeEmbeddings = matchJobsHelper(degreeEmbeddings)
 
     print(f"Top {numOutputScores} most similar sentences in database:") if printOutput else None
-    #print(jobEmbeddings[0])
-    print(degreeEmbeddings[0])
 
     simScores = model.similarity(degreeEmbeddings[degreeChoice], jobEmbeddings)[0]
     scores, indicies = topk(simScores, k=numOutputs)
