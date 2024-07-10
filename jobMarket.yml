@@ -14,3 +14,4 @@ dependencies:
   - sentence-transformers
   - groq
   - beautifulsoup4
+  - streamlit
