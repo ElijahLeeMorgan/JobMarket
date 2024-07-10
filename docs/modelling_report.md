@@ -22,9 +22,11 @@
 - Utilized direct features from the dataset: Job title, company, min workload, max workload, contract type and job descriptions. Start with one feature and with each try add one more.
 - Few-Shot Learning Approach: Began with a base block of five salary examples, incrementally adding data blocks, the same as the directed features, to assess improvements in predictive accuracy.
 
-### Embedding & Cosinussimilarity??
-- [SentenceTransformers 3.0.1](https://www.sbert.net/) library with the: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) pre-trained model.
-- Graphical representation of the modelling pipeline
+### Embedding & Cosinussimilarity
+- Model ID: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
+- Developer: Huggingface
+- Purpose: Selected for it's cross-lingual capabilities to accurately compare similarity of job and degree descriptions.
+- Library: [SentenceTransformers 3.0.1](https://www.sbert.net/)
 
 <!---
 ## Results
@@ -38,7 +40,7 @@ Key figures dependent on the model and modelling objective
 ## Model Interpretation
 ### Salary prediction LLM:
 #### Training and Evaluation:
-####bimer ned ganz sicher wege test und train dataset
+#### bimer ned ganz sicher wege test und train dataset
 - Dataset Utilization: 106 data points with salaries for training and 5 for few-shot learning setup.
 - Test Dataset: Comprised of job listings lacking salary information.
 - Metrics Used: RMSE and Overlap Coefficient, with a focus on how each block addition impacted performance.
