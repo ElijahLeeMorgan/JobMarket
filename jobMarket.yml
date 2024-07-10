@@ -1,4 +1,4 @@
-name: sample
+name: jobMarket
 channels:
   - anaconda
   - conda-forge
