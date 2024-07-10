@@ -7,10 +7,10 @@ Typically, in the exploratory analysis of the acquired raw data, quality and oth
 ### Overview Raw Datasets
 | Name      | Quelle                                                                                 | Storage location |
 |-----------|----------------------------------------------------------------------------------------|------------------|
-| Dataset 1 | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=) | JobMarket\data_acquisition\data\all_jobs_data.json                 |
+| Dataset 1 | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=) | JobMarket\data_acquisition\data\all_jobs_data.json                 |
 | Dataset 2 | (descriptions)                                                                         |                  |
 
-### Data Aquisition
+### Data Acquisition
 - Code Sharing: The scraping and data processing code is shared among team members via GitHub, ensuring transparency and collaborative development.
 
 ### Details Dataset 1
@@ -88,7 +88,7 @@ The data catalogue basically represents an extended schema of a relational datab
 ### Overview Processed Datasets
 | Name | Quelle                                    | Storage location                                                                                                                                                              |
 |----------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Processed Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon](https://www.jobs.ch/en/vacancies/?region=7&term=)                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
+| Processed Dataset 1      | [Jobs.ch, Jobs in the Zurich Reigon]([https://www.jobs.ch/en/vacancies/?region=7&term=](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=))                              | JobMarket\data_acquisition\data\df_with_salary.csv<br/> JobMarket\data_acquisition\data\df_without_salary.csv<br/> JobMarket\data_acquisition\data\df_with_salary_fewshot.csv |
 | Processed Dataset 2      | Name/short description of the data source | Link and/or short description of the location where the data is stored, e.g. accessible to the team                                                                           |
 
 ### Details Processed Dataset 1
@@ -101,7 +101,7 @@ Four instances of contract types were incorrectly scraped. These entries have be
 #### Salary Normalization:
 Hourly wages have been converted to annual salaries based on a calculation of 42 hours per week over 52 weeks. This adjustment allows for a consistent salary comparison across all job listings.
 Data Segmentation:
-#### Usage Preperation
+#### Usage Preparation
 The dataset has been segmented into three distinct dataframes for specialized analysis:
 - DataFrame for Few-Shot Prediction: Specifically prepared for training a machine learning model using few-shot learning techniques to predict missing salary data. 5 Data Points were taken.
 - DataFrame with Salary: Contains all listings where salary information is provided except of the Data in the Few-Shot DataFrame.
