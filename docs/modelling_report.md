@@ -1,21 +1,16 @@
-# `Sample Project` - Modelling Report
-The report should summarise the details of the modelling activities, e.g. machine learning experiments. 
-
+# `Job Market Analysis` - Modelling Report
 ## Initial situation
-- Aim of the modelling - consistent with *Data Mining Goals* in the project charta
-- Data set(s) and/or feature set used (references to the data report)
-- Description of the independent variables and (if applicable) the target variable
-- Type of model used or developed
+- Salary prediction based on workload percentage and company via an LLM.
+- Matching program and job descriptions via a LLM.
+- Jobs.ch provided all our data on Tech jobs in the Zurich reigon.
+- Independant varibles: Company, Salary (if applicable), Workload, Job Description, Degree Description, Degree Requirements. 
+- Dependant varibles: Predicted Salaries (if applicable), Similarity Score, Job Ranking
 
 ## Model Descriptions
-Overview of the models used and/or implemented and their configurations 
-
-- Detailed description of the model used (e.g. literature references, specification of the software library, exact module, version or other implementation details etc.)
+- Salary prediction LLM:
+- Description similarity LLM: [SentenceTransformers 3.0.1](https://www.sbert.net/) library with the: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) pre-trained model.
+<!--
 - Graphical representation of the modelling pipeline
-- If applicable: link to the code of the modelling pipeline, version information in code repository, configuration files
-- If possible, links to the artefacts of the executed modelling pipeline (training experiment)
-- Link to the literature in which the model/method is described
-- Hyperparameters
 
 ## Results
 Key figures dependent on the model and modelling objective
@@ -23,15 +18,14 @@ Key figures dependent on the model and modelling objective
 - RMSD, ROC/Lift-Charts, AUC, Confusion Matrix, Accuracy, Precision, Recall
 - Coherence, Perplexity, ... 
 - If applicable: analyses/plots of (hyper)parameter screenings
+-->
 
 ## Model Interpretation
-- If applicable: Results from the application of "explanatory models"
-- Were the modelling objectives achieved?
-- The findings resulting from the modelling phase: can the project objective be achieved with the results from the modelling phase?
-- How can the findings be used? Are there any limitations?
+- Sucessfully predicted Salary and matched student degrees to avaible jobs. 
+- Based on our model findings, we can effectively match tech jobs to student skills and prefrences.
+- Despite restrictions to tech industry jobs within the Zurich reigon, we're capable of reducing a student's job search.
 
 ## Conclusions and next steps
-- Conclusions of the key findings from the modelling phase
-- Discussion about limitations
-- Proposal for extensions and further work
-- Proposal for the deployment of the generated insights/model
+- Currenlty, our project is limited to tech jobs posted by Jobs.ch within the Zurich reigon.
+- If this project were to continue through production, we'd expand the project to all industries in Zurich and pull from multiple data sources.
+- In addition, our generic LLM models would be improved or replaced with fine-tuned LLM models. Finally, a true database solution would implemented to store and organize our data.

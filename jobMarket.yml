@@ -1,0 +1,16 @@
+name: jobMarket
+channels:
+  - defaults
+dependencies:
+  - gensim
+  - nltk
+  - pandas
+  - numpy
+  - scipy
+  - transformers
+  - pytorch
+  - conda-forge::sentencepiece
+  - protobuf==4.25.3
+  - sentence-transformers
+  - groq
+  - beautifulsoup4

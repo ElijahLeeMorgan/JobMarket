@@ -1,4 +1,5 @@
-# Sample Project
+# Job Market Analysis 
+<!--
 Change `sample` to the respective project name in
 * filename of .yml file
 * environment name in .yml-file
@@ -7,35 +8,37 @@ Change `sample` to the respective project name in
 Adapted the `LICENSE` as required.
 
 Provide a brief description of the project here.
+-->
+This project matches students to Zurich region tech jobs based on their [ZHAW](https://www.zhaw.ch/en/university/) degree, salary expectations and preferred workload percretage.
 
 ## Python Environment Setup and Management
 **Install** conda environment:
 ```sh
-$ conda env create -f sample.yml
+$ conda env create -f jobMarket.yml
 ```
 **Update** the environment with new packages/versions:
 1. modify template.yml
 2. run `conda env update`:
 ```sh
-$ conda env update --name sample --file sample.yml --prune
+$ conda env update --name jobMarket --file jobMarket.yml --prune
 ```
 `prune` uninstalls dependencies which were removed from sample.yml
 
 **Use** environment:
 before working on the project always make sure you have the environment activated:
 ```sh
-$ conda activate sample
+$ conda activate jobMarket
 ```
 
 **Check the version** of a specific package (e.g. `html5lib`) in the environment:
 ```sh
-$ conda list html5lib
+$ conda list scipy
 ```
 
 **Export** an environment file across platforms:
 Include only the packages that were specifically installed. Dependencies will be resolved upon installation
 ```sh
-$ conda env export --from-history > sample.yml
+$ conda env export --from-history > jobMarket.yml
 ```
 
 **List** all installed environments:
@@ -46,7 +49,7 @@ $ conda info --envs
 
 **Remove** environment:
 ```sh
-$ conda env remove -n sample
+$ conda env remove -n jobMarket
 ```
 
 See the complete documentation on [managing conda-environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
