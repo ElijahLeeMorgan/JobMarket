@@ -5,7 +5,7 @@
 | Name      | Quelle                                                                                 | Local Storage location                                           |
 |-----------|----------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Dataset 1 | [Jobs.ch, Tech jobs in the Zurich Reigon](https://www.jobs.ch/de/stellenangebote/informatik-telekommunikation/?location=z%C3%BCrich&term=) | JobMarket\data_acquisition\data\all_jobs_data.json               |
-| Dataset 2 | ([zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json |                  |
+| Dataset 2 | [zhaw.ch, Tech bachelors degrees and master degrees](https://www.zhaw.ch/de/sml/studium) | data_acquisition/finalized_data/bachelor_degree_information.json |                  |
 
 ### Data Acquisition
 - Code Sharing: The scraping and data processing code is shared among team members via GitHub, ensuring transparency and collaborative development.
