@@ -18,6 +18,6 @@
 | 2024-07-03 | Approach to Handling Missing Salary Data | Employ few-shot learning with incremental data blocks   | To refine model predictions through iterative testing          | Enhanced model precision and performance             | Completed   |
 | 2024-07-05 | Handling of API Rate Limits              | Paused data collection and modeling during limit resets | To comply with API usage terms and avoid service interruptions | Delay in project timeline but ensured data integrity | Completed   |
 | 2024-07-03 | Data Preprocessing Method                | Normalize hourly wages to annual salaries               | Consistency in salary data for comparative analysis            | Standardized data for more accurate analysis         | Completed   |
-|            | Embedding                                |                                                         |                                                                |                                                      |             |
+| 2024-07-03 | Description Embedding and Comparison     | Preprocessed embeddings for job and degree descriptions | To imporve model preformence and reduce app runtime            | Ability to rank jobs based on there relavence to each degree       | Completed |
 | 2024-07-08 | Best Feature Selection for Model         | Use Few-Shot Block1                                     | Best Prediction based on RMSE and Overlab                      | Direct impact on model’s predictive accuracy         | Implemented |
 
