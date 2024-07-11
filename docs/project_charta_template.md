@@ -52,7 +52,7 @@ You can reference more detailed analyses such as individual "personas" or interv
 - BeautifulSoup
 - Streamlit
 - mydata-python
-- word2vec
+- SentenceTransformers
 <!--- SQL, MySQL, etc? -->
 
 <!---
