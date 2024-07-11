@@ -24,7 +24,12 @@
 #### Prompt Engineering:
 - Utilized direct features from the dataset: Job title, company, min workload, max workload, contract type and job descriptions. Start with one feature and with each try add one more.
 - Few-Shot Learning Approach: Began with a base block of five salary examples, incrementally adding data blocks, the same as the directed features, to assess improvements in predictive accuracy.
-
+  - Block 0: Few shot 5 examples with salary 
+  - Block 1: Job title 
+  - Block 2: company 
+  - Block 3: workload (min workload and max workload) 
+  - Block 4: Contract type 
+  - Block 5: description
 ### Embedding & Cosinussimilarity
 - Model ID: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
 - Developer: Huggingface
