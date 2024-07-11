@@ -6,8 +6,8 @@ import ast
 
 # Define weights for the ranking
 weights = {
-    'similarity_score': 0.96,
-    'diff_salary': 0.04,
+    'similarity_score': 100,
+    'diff_salary': 0.0001,
 }
 
 
@@ -66,7 +66,7 @@ def score(df, sp):
 
     # Extract the cosine scores as a flat list of scores and add to the dataframe
     df['similarity_score'] = cosine_scores[0].cpu().numpy()
-
+    print(df['similarity_score'])
     return df
 
 def ranking(df):
@@ -82,5 +82,5 @@ def prep(result_df):
         str) + '%'
     result_df['combined_salary'] = result_df['min_salary'].astype(str) + ' - ' + result_df['max_salary'].astype(
         str) + ' CHF'
-    result_df['matching_score'] = (result_df['matching_score'].round(0)/100)
+    result_df['matching_score'] = (result_df['matching_score'].round(0))
     return result_df
