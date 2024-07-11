@@ -1,6 +1,6 @@
 # `Job Market Analysis` - Modelling Report
 ## Initial situation
-- Data Source: The dataset was derived from Jobs.ch and included comprehensive job listing details such as company names, job titles, descriptions, and workload, focusing on tech jobs in the Zurich region.
+- Data Source: The dataset was derived from Jobs.ch and included comprehensive job listing details such as company names, job titles, descriptions, and workload, focusing on tech jobs in the Zurich/Schaffhausen region.
 ### Salary prediction LLM:
 - Objective: Our project aimed to leverage advanced machine learning models to predict missing salary data and enhance job matching capabilities.
 - Technological Backbone: We chose the LLaMA3-70B model developed by Meta due to its large context window of 8,192 tokens, which supports complex input and output relationships.
@@ -9,8 +9,8 @@
 - Objective: Our project aimed to rank similarity of job descriptions to degree descriptions while improving job matching accuracy via Machine Learning technologies.
 - Technological Backbone: We choose the paraphrase-multilingual-MiniLM-L12-v2 model developed by the Association for Computational Linguistics due to it's cross-lingual capabilites while maintaing a high degree of accuracy.
 
-- Matching program and job descriptions via a LLM.
-- Jobs.ch provided all our data on Tech jobs in the Zurich reigon.
+- Matching program and job descriptions via cosinus similarity.
+- Jobs.ch provided all our data on Tech jobs in the Zurich/Schaffhausen reigon.
 - Independant varibles: Company, Salary (if applicable), Workload, Job Description, Degree Description, Degree Requirements. 
 - Dependant varibles: Predicted Salaries (if applicable), Similarity Score, Job Ranking
 
@@ -56,13 +56,12 @@ Key figures dependent on the model and modelling objective
 - Faced API rate limits which paused the modeling process, reflecting the need for strategic session management and possibly seeking more robust API access for future tasks.
 
 ### Embedding & Cosinussimilarity
-- Sucessfully predicted Salary and matched student degrees to avaible jobs. 
-- Based on our model findings, we can effectively match tech jobs to student skills and prefrences.
-- Despite restrictions to tech industry jobs within the Zurich reigon, we're capable of reducing a student's job search.
+#### Evaluation:
+- Functionality: Successfully aligned job opportunities with candidate skills and preferences.
+- Region Focus: Restricted to tech jobs within the Zurich/Schaffhausen region, effectively narrowing down potential job matches for local students.
 #### Challenges
-- Mismatched datatype conversions and missing job description data, potential need for generated content in future implementations. 
-- Combining generated embeddings to their respective datasets while maintaing data structure.
-
+- Data Type Mismatches: Encountered issues with datatype conversions in job descriptions, suggesting the need for enhanced data handling or content generation.
+- Data Integration: Challenges in maintaining data structure integrity while merging generated embeddings with the main dataset.
 ## Conclusions and next steps
 ### Salary prediction LLM:
 #### Achievements: 
@@ -76,3 +75,9 @@ Key figures dependent on the model and modelling objective
 - Implement a permanent database solution for ongoing data management and model training.
 #### Deployment: 
 - The model's predictions can be utilized in real-time if integrated within a dynamic job-matching platform, ensuring continuous relevance and utility.
+
+### Embedding & Cosinussimilarity
+#### Achievements:
+- Effective in reducing job search time by accurately matching student profiles with available tech job openings.
+#### Next Steps:
+- Extend the application of embedding and cosine similarity techniques to encompass a broader range of industries and job types, increasing the utility of our models across different sectors.
