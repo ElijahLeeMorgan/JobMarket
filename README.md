@@ -99,3 +99,6 @@ Artefacts from the different project phases are provided in the subfolder `docs`
 * "About Readmes" on Github
 https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes
 * [Python Dev Guide](refs/python_dev_guide.md)
+
+### API Keys
+All API keys included in this project were burnt before publishing.
